@@ -22,12 +22,12 @@ Calentador::Calentador()
 
 void Calentador :: calentar()
 {
-    temperatura += 5;
+    temperatura += incremento;
 }
 
 void Calentador :: enfriar()
 {
-    temperatura -= 5;
+    temperatura -= incremento;
 }
 
 void Calentador :: imprimeTemperatura()
