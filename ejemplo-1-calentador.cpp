@@ -10,8 +10,9 @@ class Calentador
         Calentador();
         void calentar();
         void enfriar();
-        void imprimeTemperatura();
-        int accedeTemperatura() const;
+        void imprimeCentigrados()   const;
+        void imprimeFahrenheit()    const;
+        int accedeTemperatura()     const;
 };  
 
 Calentador::Calentador()
@@ -30,7 +31,7 @@ void Calentador :: enfriar()
     temperatura -= incremento;
 }
 
-void Calentador :: imprimeTemperatura()
+void Calentador :: imprimeCentigrados() const
 {
     std :: cout  << "La temperatura es " << temperatura << std :: endl;
 }
@@ -40,13 +41,21 @@ int Calentador :: accedeTemperatura() const
     return temperatura;
 }
 
+void Calentador :: imprimeFahrenheit() const
+{
+    std::cout   << "La temperatura es " << temperatura * 1.8 + 32 
+                << "°F" << std::endl;
+}
+
 int main()
 {
     Calentador c1,c2;
     c1.calentar();
-    c1.imprimeTemperatura();
+    c1.imprimeCentigrados();
     
     c2.enfriar();
-    c2.imprimeTemperatura();
+    c2.imprimeCentigrados();
+    
+    c1.imprimeFahrenheit();
     return 0;
 }
