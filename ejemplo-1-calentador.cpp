@@ -15,6 +15,7 @@ class Calentador
         void imprimeCentigrados()   const;
         void imprimeFahrenheit()    const;
         int accedeTemperatura()     const;
+        bool operator==(Calentador otro);    //Sobrecarga de método miembro.
 };  
 
 Calentador::Calentador(int temperatura, int min, int max)
@@ -26,11 +27,11 @@ Calentador::Calentador(int temperatura, int min, int max)
         this->temperatura = min;
     }
     
-    if  (min > max)    {
+    //if  (min > max)    {
         //std :: cout << "Error en el rango min-max" << std::endl;
         //std::exit(EXIT_FAILURE);
-        throw "Erro en el rango min-max";
-    }
+        //throw "Erro en el rango min-max";
+    //}
     incremento = 3;
 }
 
@@ -60,11 +61,28 @@ void Calentador :: imprimeFahrenheit() const
                 << "°F" << std::endl;
 }
 
+bool Calentador :: operator==(Calentador otro)
+{
+    if  (this->temperatura == otro.temperatura) {
+        return true;
+    }
+    else    {
+        return false;
+    }
+}
+
 int main()
 {
-    try {
-        Calentador c1{0,-10,10};
-        Calentador c2{15,50,30};
+    //try {
+        Calentador c1{-10,10,10};
+        Calentador c2{0,30,10};
+        
+        if  (c1 ==  c2) {
+            std :: cout << "Iguales";
+        }
+        else    {
+            std :: cout << "Diferentes" << std::endl;
+        }
         c1.calentar();
         c1.imprimeCentigrados();
         
@@ -73,6 +91,6 @@ int main()
         
         c1.imprimeFahrenheit();
         return 0;
-    }
-    catch   (const std::runtime_error& e);
+    //}
+    //catch   (const std::runtime_error& e);
 }
