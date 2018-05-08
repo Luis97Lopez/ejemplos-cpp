@@ -53,7 +53,6 @@ Fraccion Fraccion :: operator/(Fraccion otro)
 void operator << (std :: ostream &salida, Fraccion f)
 {
     salida << f.numerador << " / " << f.denominador << std :: endl;
-    
 }
 
 void operator >> (std :: istream &entrada, Fraccion &f)
